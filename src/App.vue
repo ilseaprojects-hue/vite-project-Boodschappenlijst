@@ -1,51 +1,36 @@
 <script setup>
-const groceries = ref([0, 0, 0, 0, 0])
+import { ref, computed } from 'vue'
+
+const products = ref([
+  { name: 'Brood', price: 1.00, quantity: 0 },
+  { name: 'Brocoli', price: 0.99, quantity: 0 },
+  { name: 'Krentenbollen', price: 1.20, quantity: 0 },
+  { name: 'Noten', price: 2.99, quantity: 0 }
+])
 </script>
 
 <template>
-  <div class="Boodschappen">
-    <table>
+  <table>
+    <thead>
       <tr>
         <th>Product</th>
-        <th>Prijs</th>
-        <th>Aantal</th>
-        <th>Subtotaal</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
       </tr>
-
-      <tr>
-        <td>Brood</td>
-        <td></td>
-        <td></td>
-        <td></td>
+    </thead>
+    <tbody>
+      <tr v-for="(product, index) in products" :key="index">
+        <td>{{ product.name }}</td>
+        <td>{{ product.price.toFixed(2) }}</td>
+        <td>
+          <input type="number" v-model.number="product.quantity" min="0" />
+        </td>
+        <td>{{ (product.price * product.quantity).toFixed(2) }}</td>
       </tr>
-
-      <tr>
-        <td>Brocoli</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td>Krentenbol</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td>Noten</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <tfoot colspan="3">Totaal</tfoot>
-        <tfoot></tfoot>
-      </tr>
-    </table>
-  </div>
+    </tbody>
+  </table>
 </template>
+
 
 <style scoped></style>
