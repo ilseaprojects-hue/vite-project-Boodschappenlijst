@@ -7,6 +7,10 @@ const products = ref([
   { name: 'Krentenbollen', price: 1.20, quantity: 0 },
   { name: 'Noten', price: 2.99, quantity: 0 }
 ])
+
+const total = computed(() =>
+  products.value.reduce((sum, product) => sum + product.price * product.quantity, 0)
+)
 </script>
 
 <template>
@@ -14,9 +18,9 @@ const products = ref([
     <thead>
       <tr>
         <th>Product</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Subtotal</th>
+        <th>Prijs</th>
+        <th>Hoeveelheid</th>
+        <th>Subtotaal</th>
       </tr>
     </thead>
     <tbody>
@@ -29,6 +33,10 @@ const products = ref([
         <td>{{ (product.price * product.quantity).toFixed(2) }}</td>
       </tr>
     </tbody>
+    <tfoot>
+      <td colspan="3">Totaal</td>
+      <td>{{ total.toFixed(2) }}</td>
+    </tfoot>
   </table>
 </template>
 
