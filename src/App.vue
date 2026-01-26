@@ -33,10 +33,12 @@ const total = computed(() =>
         <td>{{ (product.price * product.quantity).toFixed(2) }}</td>
       </tr>
     </tbody>
-    <tfoot>
-      <td colspan="3">Totaal</td>
-      <td>{{ total.toFixed(2) }}</td>
-    </tfoot>
+<tfoot>
+  <tr>
+    <td colspan="3">Totaal</td>
+    <td>{{ total.toFixed(2) }}</td>
+  </tr>
+</tfoot>
   </table>
 </template>
 
