@@ -1,16 +1,13 @@
+<template>
+  <div>
+    <h2>Overzicht Boodschappen</h2>
+    <GroceriesTable :products="groceries" />
+  </div>
+</template>
+
 <script setup>
-import { ref } from 'vue'
+import { getAllGroceries } from '../store.js'
 import GroceriesTable from '../../../components/GroceriesTable.vue'
 
-const products = ref([
-    { name: 'Brood', price: 1.00, quantity: 0 },
-    { name: 'Brocoli', price: 0.99, quantity: 0 },
-    { name: 'Krentenbollen', price: 1.20, quantity: 0 },
-    { name: 'Noten', price: 2.99, quantity: 0 }
-])
-
+const groceries = getAllGroceries
 </script>
-
-<template>
-  <GroceriesTable :products="products" />
-</template>
