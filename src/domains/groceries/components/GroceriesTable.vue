@@ -25,6 +25,8 @@ const total = computed(() =>
                     <input type="number" v-model.number="product.quantity" min="0" />
                 </td>
                 <td>{{ (product.price * product.quantity).toFixed(2) }}</td>
+                <router-link :to="`/edit/${product.id}`"></router-link>
+                    <button>Edit</button>
             </tr>
         </tbody>
         <tfoot>

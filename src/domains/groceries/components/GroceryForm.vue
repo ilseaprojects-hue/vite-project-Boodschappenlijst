@@ -24,6 +24,11 @@ const onSubmit = () => {
             <input v-model.number="groceryRef.value.quantity" />
         </div>
 
+        <div>
+            <label for="price">Prijs:</label>
+            <input v-model.number="groceryRef.value.price" step="0.01" />   
+        </div>
+
         <button type="submit">Opslaan</button>
     </form>
 </template>
