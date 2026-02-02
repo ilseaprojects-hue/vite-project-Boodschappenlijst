@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+import router from '../../../router';
 const props = defineProps(['products'])
 
 const total = computed(() =>
@@ -25,8 +26,15 @@ const total = computed(() =>
                     <input type="number" v-model.number="product.quantity" min="0" />
                 </td>
                 <td>{{ (product.price * product.quantity).toFixed(2) }}</td>
-                <router-link :to="`/edit/${product.id}`"></router-link>
-                    <button>Edit</button>
+                <td><router-link :to="`/edit/${product.id}`">
+                        <button>Edit</button>
+                    </router-link></td>
+
+            </tr>
+            <tr>
+                <td>
+                    <button>Submit</button>
+                </td>
             </tr>
         </tbody>
         <tfoot>
