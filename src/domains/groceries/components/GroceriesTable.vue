@@ -1,11 +1,17 @@
 <script setup>
 import { ref, computed } from 'vue'
 import router from '../../../router';
+import { removeGrocery } from '../store.js'
+
 const props = defineProps(['products'])
 
 const total = computed(() =>
     props.products.reduce((sum, product) => sum + product.price * product.quantity, 0)
 )
+
+const handleDelete = (id) => {
+  removeGrocery(id)
+}
 </script>
 
 <template>
@@ -29,10 +35,13 @@ const total = computed(() =>
                 <td><router-link :to="`/edit/${product.id}`">
                         <button>Edit</button>
                     </router-link></td>
+                <td>
+                    <button @click="handleDelete(product.id)">Verwijder</button>
+                </td>
             </tr>
             <tr>
-                <td>
-                    <button>Submit</button>
+                <td colspan="5">
+                    <button @click="router.push('/create')">Nieuw product</button>
                 </td>
             </tr>
         </tbody>

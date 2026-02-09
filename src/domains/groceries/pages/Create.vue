@@ -2,6 +2,9 @@
 import GroceryForm from '../components/GroceryForm.vue'
 import { addGrocery } from '../store.js'
 import { reactive } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const grocery = reactive({
   name: '',
@@ -11,6 +14,7 @@ const grocery = reactive({
 
 const handleSubmit = (newGrocery) => {
   addGrocery(newGrocery)
+  router.push('/')
 }
 
 </script>
