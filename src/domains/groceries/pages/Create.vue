@@ -1,8 +1,13 @@
 <script setup>
 import GroceryForm from '../components/GroceryForm.vue'
 import { addGrocery } from '../store.js'
+import { reactive } from 'vue'
 
-const grocery = { name: '', price: 0, quantity: 0 }
+const grocery = reactive({
+  name: '',
+  price: 0,
+  quantity: 0
+})
 
 const handleSubmit = (newGrocery) => {
   addGrocery(newGrocery)

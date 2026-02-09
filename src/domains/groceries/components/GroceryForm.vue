@@ -1,7 +1,13 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
-const props = defineProps(['grocery'])
+const props = defineProps({
+  grocery: {
+    type: Object,
+    required: true
+  }
+})
+
 const emit = defineEmits(['submit'])
 
 const groceryRef = ref({ ...props.grocery })

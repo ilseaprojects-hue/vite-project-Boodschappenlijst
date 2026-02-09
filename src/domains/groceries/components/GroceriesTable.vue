@@ -29,7 +29,6 @@ const total = computed(() =>
                 <td><router-link :to="`/edit/${product.id}`">
                         <button>Edit</button>
                     </router-link></td>
-
             </tr>
             <tr>
                 <td>
