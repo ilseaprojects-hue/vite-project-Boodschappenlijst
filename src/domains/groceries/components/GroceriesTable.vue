@@ -27,11 +27,11 @@ const handleDelete = (id) => {
         <tbody>
             <tr v-for="(product, index) in products" :key="index">
                 <td>{{ product.name }}</td>
-                <td>{{ product.price.toFixed(2) }}</td>
+                <td>€{{ product.price.toFixed(2) }}</td>
                 <td>
                     <input type="number" v-model.number="product.quantity" min="0" />
                 </td>
-                <td>{{ (product.price * product.quantity).toFixed(2) }}</td>
+                <td>€{{ (product.price * product.quantity).toFixed(2) }}</td>
                 <td><router-link :to="`/edit/${product.id}`">
                         <button>Edit</button>
                     </router-link></td>
@@ -48,7 +48,7 @@ const handleDelete = (id) => {
         <tfoot>
             <tr>
                 <td colspan="3">Totaal</td>
-                <td>{{ total.toFixed(2) }}</td>
+                <td>€{{ total.toFixed(2) }}</td>
             </tr>
         </tfoot>
     </table>

@@ -8,7 +8,6 @@ const groceries = computed(() => getAllGroceries.value)
 
 <template>
   <div>
-    <h2>Overzicht Boodschappen</h2>
     <GroceriesTable :products="groceries" />
   </div>
 </template>
