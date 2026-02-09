@@ -8,6 +8,7 @@ const router = useRouter()
 
 // Haal de juiste grocery uit de store
 const grocery = getGroceryById(route.params.id)
+console.log('Grocery to edit:', grocery)
 
 const handleSubmit = (updatedGrocery) => {
   updateGrocery(updatedGrocery)
