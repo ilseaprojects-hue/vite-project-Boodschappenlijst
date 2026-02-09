@@ -10,7 +10,7 @@ const total = computed(() =>
 )
 
 const handleDelete = (id) => {
-  removeGrocery(id)
+    removeGrocery(id)
 }
 </script>
 
@@ -21,7 +21,7 @@ const handleDelete = (id) => {
                 <th>Product</th>
                 <th>Prijs</th>
                 <th>Hoeveelheid</th>
-                <th>Subtotaal</th>
+                <th colspan="3">Subtotaal</th>
             </tr>
         </thead>
         <tbody>
@@ -36,12 +36,7 @@ const handleDelete = (id) => {
                         <button>Edit</button>
                     </router-link></td>
                 <td>
-                    <button @click="handleDelete(product.id)">Verwijder</button>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="5">
-                    <button @click="router.push('/create')">Nieuw product</button>
+                    <button class="delete-btn" @click="handleDelete(product.id)">Verwijder</button>
                 </td>
             </tr>
         </tbody>
@@ -49,10 +44,53 @@ const handleDelete = (id) => {
             <tr>
                 <td colspan="3">Totaal</td>
                 <td>€{{ total.toFixed(2) }}</td>
+                <td colspan="2"></td>
             </tr>
         </tfoot>
     </table>
+    <div class="add-product">
+        <button @click="router.push('/create')">Nieuw product</button>
+    </div>
 </template>
 
 
-<style scoped></style>
+<style scoped>
+.add-product {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.add-product button {
+    background-color: #7556bd;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    color: white;
+    cursor: pointer;
+}
+
+.add-product button:hover {
+    background-color: #402b72;
+}
+
+.delete-btn {
+    background-color: #ac3f53;
+    color: white;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #862532;
+}
+</style>

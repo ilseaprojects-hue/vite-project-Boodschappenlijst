@@ -3,10 +3,8 @@ import { useRoute, useRouter } from 'vue-router'
 import GroceryForm from '../components/GroceryForm.vue'
 import { getGroceryById, updateGrocery } from '../store.js'
 
-
 const route = useRoute()
 const router = useRouter()
-
 
 const grocery = getGroceryById(route.params.id)
 console.log('Grocery to edit:', grocery)

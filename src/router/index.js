@@ -1,4 +1,3 @@
-
 import { createRouter, createWebHistory } from 'vue-router'
 import groceriesRoutes from '../domains/groceries/routes'
 
